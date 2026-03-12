@@ -1,1 +1,3 @@
+# %%
 print('Bienvenidos al Taller de Programación para el Análisis de Datos de la Tecnicatura en Gestión y Análisis de Datos en Organizaciones')
+# %%
