@@ -103,5 +103,3 @@ Los notebooks de ejercicios en `ejercicios/` tienen el enunciado y la solución.
 ## Licencia
 
 Ver [LICENSE](LICENSE).
-
-Prueba
