@@ -94,6 +94,13 @@ Librerias principales utilizadas en el material:
 - `selenium`
 - `webdriver-manager`
 
+Dependencias adicionales usadas en notebooks puntuales:
+
+- `PyDrive2`
+- `ydata-profiling`
+- `python-docx`
+- `camelot-py[cv]`
+
 ## Puesta en marcha
 
 1. Clonar el repositorio:
@@ -124,6 +131,17 @@ jupyter lab
 ```
 
 Tambien puede abrir los notebooks con VS Code y la extension de Jupyter.
+
+## Uso con Google Colab (kernel/servidor)
+
+Para levantar el entorno en Colab y seleccionar el runtime/kernel, consulte la guia de la clase 1:
+
+- [U1-Clase-1-1-Introduccion-a-Google-Colaboratory.pdf](sesiones/primer-parcial/u1/clase1/U1-Clase-1-1-Introduccion-a-Google-Colaboratory.pdf)
+
+Material complementario de la misma clase:
+
+- [U1-Clase-1-2-Introduccion-a-Python.pdf](sesiones/primer-parcial/u1/clase1/U1-Clase-1-2-Introduccion-a-Python.pdf)
+- [U1-Clase-1-3-Instalacion-local-de-Python-y-VSCode.pdf](sesiones/primer-parcial/u1/clase1/U1-Clase-1-3-Instalacion-local-de-Python-y-VSCode.pdf)
 
 ## Uso sugerido del material
 
