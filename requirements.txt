@@ -4,15 +4,348 @@
 #
 #    pip-compile
 #
+annotated-types==0.7.0
+    # via pydantic
+attrs==26.1.0
+    # via
+    #   outcome
+    #   trio
+    #   visions
+beautifulsoup4==4.14.3
+    # via
+    #   -r requirements.in
+    #   yfinance
+camelot-py==1.0.9
+    # via -r requirements.in
+certifi==2026.4.22
+    # via
+    #   curl-cffi
+    #   requests
+    #   selenium
+cffi==2.0.0
+    # via
+    #   cryptography
+    #   curl-cffi
+    #   trio
+chardet==7.4.3
+    # via camelot-py
+charset-normalizer==3.4.7
+    # via
+    #   pdfminer-six
+    #   requests
+click==8.3.3
+    # via camelot-py
+colorama==0.4.6
+    # via
+    #   click
+    #   tqdm
+contourpy==1.3.3
+    # via matplotlib
+cryptography==43.0.3
+    # via
+    #   google-auth
+    #   pdfminer-six
+    #   pydrive2
+    #   pyopenssl
+curl-cffi==0.15.0
+    # via yfinance
+cycler==0.12.1
+    # via matplotlib
+dacite==1.9.2
+    # via ydata-profiling
+et-xmlfile==2.0.0
+    # via openpyxl
+filetype==1.2.0
+    # via ydata-profiling
+fonttools==4.62.1
+    # via matplotlib
+frozendict==2.4.7
+    # via yfinance
+google-api-core==2.30.3
+    # via google-api-python-client
+google-api-python-client==2.195.0
+    # via pydrive2
+google-auth==2.50.0
+    # via
+    #   google-api-core
+    #   google-api-python-client
+    #   google-auth-httplib2
+google-auth-httplib2==0.3.1
+    # via google-api-python-client
+googleapis-common-protos==1.74.0
+    # via google-api-core
+greenlet==3.5.0
+    # via sqlalchemy
+h11==0.16.0
+    # via wsproto
+httplib2==0.31.2
+    # via
+    #   google-api-python-client
+    #   google-auth-httplib2
+    #   oauth2client
+idna==3.13
+    # via
+    #   requests
+    #   trio
+imagehash==4.3.2
+    # via
+    #   visions
+    #   ydata-profiling
+jinja2==3.1.6
+    # via ydata-profiling
+joblib==1.5.3
+    # via phik
+kagglehub==1.0.1
+    # via -r requirements.in
+kagglesdk==0.1.23
+    # via kagglehub
+kiwisolver==1.5.0
+    # via matplotlib
+llvmlite==0.45.1
+    # via numba
+lxml==6.1.0
+    # via python-docx
+markdown-it-py==4.0.0
+    # via rich
+markupsafe==3.0.3
+    # via jinja2
+matplotlib==3.10.0
+    # via
+    #   phik
+    #   seaborn
+    #   wordcloud
+    #   ydata-profiling
+mdurl==0.1.2
+    # via markdown-it-py
+minify-html==0.18.1
+    # via ydata-profiling
+mpmath==1.3.0
+    # via sympy
+multimethod==1.12
+    # via
+    #   visions
+    #   ydata-profiling
+multitasking==0.0.13
+    # via yfinance
 mysql-connector-python==9.7.0
     # via -r requirements.in
-numpy==2.4.4
-    # via pandas
-pandas==3.0.2
+networkx==3.6.1
+    # via visions
+numba==0.62.1
+    # via ydata-profiling
+numpy==2.3.5
+    # via
+    #   -r requirements.in
+    #   camelot-py
+    #   contourpy
+    #   imagehash
+    #   matplotlib
+    #   numba
+    #   opencv-python-headless
+    #   pandas
+    #   patsy
+    #   phik
+    #   pywavelets
+    #   scipy
+    #   seaborn
+    #   statsmodels
+    #   visions
+    #   wordcloud
+    #   ydata-profiling
+    #   yfinance
+oauth2client==4.1.3
+    # via pydrive2
+opencv-python-headless==4.13.0.92
+    # via camelot-py
+openpyxl==3.1.5
+    # via camelot-py
+outcome==1.3.0.post0
+    # via
+    #   trio
+    #   trio-websocket
+packaging==26.2
+    # via
+    #   kagglehub
+    #   matplotlib
+    #   statsmodels
+    #   webdriver-manager
+pandas==2.3.3
+    # via
+    #   -r requirements.in
+    #   camelot-py
+    #   phik
+    #   seaborn
+    #   statsmodels
+    #   visions
+    #   ydata-profiling
+    #   yfinance
+patsy==1.0.2
+    # via statsmodels
+pdfminer-six==20260107
+    # via camelot-py
+peewee==4.0.5
+    # via yfinance
+phik==0.12.5
+    # via ydata-profiling
+pillow==12.2.0
+    # via
+    #   camelot-py
+    #   imagehash
+    #   matplotlib
+    #   visions
+    #   wordcloud
+platformdirs==4.9.6
+    # via yfinance
+proto-plus==1.27.2
+    # via google-api-core
+protobuf==7.34.1
+    # via
+    #   google-api-core
+    #   googleapis-common-protos
+    #   kagglesdk
+    #   proto-plus
+    #   yfinance
+puremagic==2.2.0
+    # via visions
+pyasn1==0.6.3
+    # via
+    #   oauth2client
+    #   pyasn1-modules
+    #   rsa
+pyasn1-modules==0.4.2
+    # via
+    #   google-auth
+    #   oauth2client
+pycparser==3.0
+    # via cffi
+pydantic==2.13.3
+    # via ydata-profiling
+pydantic-core==2.46.3
+    # via pydantic
+pydrive2==1.21.3
     # via -r requirements.in
+pygments==2.20.0
+    # via rich
+pyopenssl==24.2.1
+    # via pydrive2
+pyparsing==3.3.2
+    # via
+    #   httplib2
+    #   matplotlib
+pypdf==5.9.0
+    # via camelot-py
+pypdfium2==5.7.1
+    # via camelot-py
+pysocks==1.7.1
+    # via urllib3
 python-dateutil==2.9.0.post0
-    # via pandas
+    # via
+    #   matplotlib
+    #   pandas
+python-docx==1.2.0
+    # via -r requirements.in
+python-dotenv==1.2.2
+    # via webdriver-manager
+pytz==2026.1.post1
+    # via
+    #   pandas
+    #   yfinance
+pywavelets==1.9.0
+    # via imagehash
+pyyaml==6.0.3
+    # via
+    #   kagglehub
+    #   pydrive2
+    #   ydata-profiling
+requests==2.33.1
+    # via
+    #   -r requirements.in
+    #   google-api-core
+    #   kagglehub
+    #   kagglesdk
+    #   webdriver-manager
+    #   ydata-profiling
+    #   yfinance
+rich==15.0.0
+    # via curl-cffi
+rsa==4.9.1
+    # via oauth2client
+scipy==1.16.3
+    # via
+    #   -r requirements.in
+    #   imagehash
+    #   phik
+    #   statsmodels
+    #   ydata-profiling
+seaborn==0.13.2
+    # via
+    #   -r requirements.in
+    #   ydata-profiling
+selenium==4.43.0
+    # via -r requirements.in
 six==1.17.0
-    # via python-dateutil
+    # via
+    #   oauth2client
+    #   python-dateutil
+sniffio==1.3.1
+    # via trio
+sortedcontainers==2.4.0
+    # via trio
+soupsieve==2.8.3
+    # via beautifulsoup4
+sqlalchemy==2.0.49
+    # via -r requirements.in
+statsmodels==0.14.6
+    # via ydata-profiling
+sympy==1.14.0
+    # via -r requirements.in
+tabulate==0.10.0
+    # via camelot-py
+tqdm==4.67.3
+    # via
+    #   kagglehub
+    #   ydata-profiling
+trio==0.33.0
+    # via
+    #   selenium
+    #   trio-websocket
+trio-websocket==0.12.2
+    # via selenium
+typeguard==4.5.1
+    # via ydata-profiling
+typing-extensions==4.15.0
+    # via
+    #   beautifulsoup4
+    #   pydantic
+    #   pydantic-core
+    #   python-docx
+    #   selenium
+    #   sqlalchemy
+    #   typeguard
+    #   typing-inspection
+typing-inspection==0.4.2
+    # via pydantic
 tzdata==2026.2
     # via pandas
+uritemplate==4.2.0
+    # via google-api-python-client
+urllib3[socks]==2.6.3
+    # via
+    #   requests
+    #   selenium
+visions[type-image-path]==0.8.1
+    # via ydata-profiling
+webdriver-manager==4.0.2
+    # via -r requirements.in
+websocket-client==1.9.0
+    # via selenium
+websockets==16.0
+    # via yfinance
+wordcloud==1.9.6
+    # via ydata-profiling
+wsproto==1.3.2
+    # via trio-websocket
+ydata-profiling==4.18.4
+    # via -r requirements.in
+yfinance==1.3.0
+    # via -r requirements.in
