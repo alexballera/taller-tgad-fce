@@ -54,3 +54,14 @@ SELECT `ProductName`,
 FROM `Products`
 ORDER BY `ValorEnStock` DESC
 LIMIT 10;
+
+-- 1.7 — Pedidos en un rango de fechas
+SELECT  `CustomerID`,
+        `OrderDate`,
+         `ShipCountry`,
+         `Freight`,
+         `OrderDate`
+FROM `Orders`
+WHERE `OrderDate` BETWEEN '2023-10-01' AND '2023-10-31'
+ORDER BY `OrderDate`
+LIMIT 10;
