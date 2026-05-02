@@ -65,3 +65,13 @@ FROM `Orders`
 WHERE `OrderDate` BETWEEN '2023-10-01' AND '2023-10-31'
 ORDER BY `OrderDate`
 LIMIT 10;
+
+-- 1.8 — Productos descontinuados vs activos
+SELECT 
+        CASE 
+            WHEN `Discontinued` = 1 THEN 'Descontinuado'
+            ELSE 'Activo'
+        END AS `Estado`,
+        COUNT(*) AS `Cantidad`
+FROM `Products`
+GROUP BY `Discontinued`;
