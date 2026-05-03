@@ -68,10 +68,44 @@ LIMIT 10;
 
 -- 1.8 — Productos descontinuados vs activos
 SELECT 
-        CASE 
+        CASE
             WHEN `Discontinued` = 1 THEN 'Descontinuado'
             ELSE 'Activo'
         END AS `Estado`,
         COUNT(*) AS `Cantidad`
 FROM `Products`
 GROUP BY `Discontinued`;
+
+/*
+**Ejercicio 1.** Listá todos los empleados ordenados por fecha de contratación
+(más antiguos primero). Mostrá nombre, apellido, cargo y fecha.
+*/
+SELECT `FirstName`,
+       `LastName`,
+       `Title`,
+       `HireDate`
+FROM `Employees`
+ORDER BY `HireDate` ASC;
+
+/*
+**Ejercicio 2.** ¿Cuántos clientes hay en cada país? Mostrá los 10 países con más clientes.
+*/
+SELECT `Country`,
+       COUNT(*) AS `CantidadClientes`
+FROM `Customers`
+GROUP BY `Country`
+ORDER BY `CantidadClientes` DESC
+LIMIT 10;
+
+/*
+**Ejercicio 3.** Encontrá los productos cuyo stock está por debajo
+del nivel de reposición (`ReorderLevel`). Mostrá nombre, stock actual
+y nivel de reposición, ordenados por la diferencia.
+*/
+SELECT `ProductName`,
+       `UnitsInStock`,
+       `ReorderLevel`,
+       (`ReorderLevel` - `UnitsInStock`) AS `Diferencia`
+FROM `Products`
+WHERE `UnitsInStock` < `ReorderLevel`
+ORDER BY `Diferencia` DESC;
