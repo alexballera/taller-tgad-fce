@@ -200,26 +200,20 @@ ORDER BY RevenueTotal DESC;
 encontrá el empleado con mayor revenue en cada país de
 envío. *(Pista: subconsulta o CTE)*
 */
-WITH EmpleadoRevenue AS (
-    SELECT  o.OrderID,
-            o.ShipCountry,
-            e.EmployeeID,
-            e.FirstName,
-            e.LastName,
-            ROUND(SUM(od.Quantity * od.UnitPrice * (1 - od.Discount)), 2) AS RevenueTotal
-    FROM    Orders o
-    JOIN    Employees e ON o.EmployeeID = e.EmployeeID
-    JOIN    OrderDetails od ON o.OrderID = od.OrderID
-    GROUP BY o.OrderID, o.ShipCountry, e.EmployeeID, e.FirstName, e.LastName
+WITH RevenueEmpleados AS (
+    SELECT  ShipCountry AS PaisEnvio,
+            CONCAT(FirstName, ' ', LastName) AS Empleado,
+            ROUND(SUM(LineTotal), 2) AS Revenue
+    FROM    vw_orden_detalle
+    GROUP BY ShipCountry, FirstName, LastName
 )
-SELECT  r.ShipCountry,
-        r.FirstName,
-        r.LastName,
-        r.RevenueTotal
-FROM    EmpleadoRevenue r
-WHERE   r.RevenueTotal = (
-    SELECT MAX(RevenueTotal)
-    FROM   EmpleadoRevenue r2
-    WHERE  r2.ShipCountry = r.ShipCountry
+SELECT  r.PaisEnvio,
+        r.Empleado,
+        r.Revenue
+FROM    RevenueEmpleados r
+WHERE   r.Revenue = (
+    SELECT MAX(Revenue)
+    FROM   RevenueEmpleados r2
+    WHERE  r2.PaisEnvio = r.PaisEnvio
 )
-ORDER BY r.RevenueTotal DESC;
+ORDER BY r.Revenue DESC;
