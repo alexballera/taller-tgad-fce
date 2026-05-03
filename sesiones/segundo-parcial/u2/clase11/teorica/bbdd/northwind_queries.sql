@@ -98,9 +98,8 @@ ORDER BY `CantidadClientes` DESC
 LIMIT 10;
 
 /*
-**Ejercicio 3.** Encontrá los productos cuyo stock está por debajo
-del nivel de reposición (`ReorderLevel`). Mostrá nombre, stock actual
-y nivel de reposición, ordenados por la diferencia.
+**Ejercicio 3.** Encontrá los productos cuyo stock está por debajo del nivel de reposición
+(`ReorderLevel`). Mostrá nombre, stock actual y nivel de reposición, ordenados por la diferencia.
 */
 SELECT `ProductName`,
        `UnitsInStock`,
@@ -108,4 +107,32 @@ SELECT `ProductName`,
        (`ReorderLevel` - `UnitsInStock`) AS `Diferencia`
 FROM `Products`
 WHERE `UnitsInStock` < `ReorderLevel`
-ORDER BY `Diferencia` DESC;
+ORDER BY `Diferencia` DESC
+LIMIT 10;
+
+/*
+**Ejercicio 4.** Listá los pedidos enviados a Brasil. ¿Cuál fue el flete más caro?
+*/
+SELECT `OrderID`,
+       `CustomerID`,
+       `OrderDate`,
+       `ShipCountry`,
+       `Freight`
+FROM `Orders`
+WHERE `ShipCountry` = 'Brazil'
+ORDER BY `Freight` DESC
+LIMIT 1;
+
+/*
+**Ejercicio 5.** Mostrá los pedidos del mes de noviembre 2023,
+incluyendo una columna calculada que indique cuántos días tardó
+en enviarse (`ShippedDate - OrderDate`).
+*/
+SELECT `OrderId`,
+       `CustomerId`,
+       `OrderDate`,
+       `ShippedDate`,
+       (DATEDIFF(`ShippedDate`, `OrderDate`)) AS `DiasRetrasoEnvio`
+FROM `Orders`
+WHERE `OrderDate` BETWEEN '2023-11-01' AND '2023-11-30'
+ORDER BY `DiasRetrasoEnvio` DESC;
