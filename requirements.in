@@ -15,3 +15,7 @@ sympy
 webdriver-manager
 ydata-profiling
 yfinance
+plotly
+nbformat
+ipywidgets
+kaleido
