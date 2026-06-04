@@ -106,28 +106,42 @@ Abre VS Code y utiliza la extensión oficial de Jupyter para VS Code. Selecciona
 
 ```
 taller-tgad-fce/
-├── fuentes/                    # Materiales de referencia (PDFs, apuntes)
+├── fuentes/                        # PDFs y materiales de referencia
+├── docs/                           # Guías de entorno y configuración
 ├── sesiones/
-│   └── primer-parcial/
-│       ├── ejercicios/         # Ejercicios resueltos tipo datos básicos
-│       ├── parcial/            # Evaluaciones del primer parcial
-│       ├── u1/                 # Unidad 1: Introducción a programación (clases 1-5)
-│       │   ├── clase1/         # Introducción a Colab y VS Code
-│       │   ├── clase2/         # Tipos de datos y estructuras básicas
-│       │   ├── clase3/         # Diccionarios y objetos
-│       │   ├── clase4/         # Sentencias de control y funciones
-│       │   └── clase5/         # Práctica integradora
-│       └── u2/                 # Unidad 2: Datos y análisis (clases 6-10)
-│           ├── clase6/         # Obtención de datos
-│           ├── clase7/         # Web scraping y Selenium
-│           ├── clase8/         # Estructuras de datos avanzadas
-│           ├── clase9/         # Análisis con Pandas
-│           ├── clase10/        # Práctica integradora
-│           └── clase11/        # Base de datos SQL
-├── requirements.in             # Dependencias directas (fuente)
-├── requirements.txt            # Dependencias compiladas (generado)
-├── README.md                   # Este archivo
-└── LICENSE                     # Licencia del proyecto
+│   ├── primer-parcial/
+│   │   ├── parcial/                # Evaluaciones del primer parcial
+│   │   ├── practica/               # Ejercicios resueltos tipo datos básicos
+│   │   ├── u1/                     # Unidad 1: Fundamentos de Python (clases 0–5)
+│   │   │   ├── clase1/             # Introducción a Colab y VS Code
+│   │   │   ├── clase2/             # Tipos de datos primitivos y estructuras
+│   │   │   ├── clase3/             # Diccionarios, fechas y NumPy
+│   │   │   ├── clase4/             # Control de flujo y funciones
+│   │   │   └── clase5/             # POO y práctica integradora
+│   │   └── u2/                     # Unidad 2: Adquisición y análisis (clases 6–10)
+│   │       ├── clase6/             # Obtención de datos y Profiling Report
+│   │       ├── clase7/             # Web scraping (requests, BeautifulSoup, Selenium)
+│   │       ├── clase8/             # DataFrames y manipulación con pandas
+│   │       ├── clase9/             # Muestreo aleatorio y estratificado
+│   │       └── clase10/            # Práctica integradora U2
+│   └── segundo-parcial/
+│       ├── u2/                     # Unidad 2 cont.: Estadística, viz y gobernanza (clases 11–18)
+│       │   ├── clase11/            # Estadística descriptiva + MySQL/Northwind
+│       │   ├── clase12/            # Práctica estadística (correlaciones, yfinance)
+│       │   ├── clase13/            # Visualización: matplotlib, seaborn, plotly
+│       │   ├── clase14/            # Práctica visualización: funciones gráficas dinámicas
+│       │   ├── clase15/            # Visualización avanzada: KDE, mapas, animaciones
+│       │   ├── clase16/            # Práctica integrada: dashboards y reportes
+│       │   ├── clase17/            # SHAP Values y explicabilidad de modelos (XGBoost)
+│       │   └── clase18/            # Privacidad diferencial (anonymizedf, opendp)
+│       └── u3/                     # Unidad 3: Machine Learning responsable (clases 19–21)
+│           ├── clase19/            # Sesgo, varianza y equidad
+│           ├── clase20/            # Proyectos integradores: clasificación y regresión
+│           └── clase21/            # Ejercicio integrador final: Heart Disease Dataset
+├── requirements.in                 # Dependencias directas (fuente)
+├── requirements.txt                # Dependencias compiladas (generado)
+├── README.md                       # Este archivo
+└── LICENSE                         # Licencia del proyecto
 ```
 
 Cada carpeta de clase contiene:
@@ -140,25 +154,53 @@ Cada carpeta de clase contiene:
 
 ## Contenidos por unidad
 
-### Unidad 1 (clases 1 a 5)
+### Unidad 1 — Fundamentos de Python (Clases 0 a 5)
 
-Fundamentos de programación en Python:
+Introducción a la programación con Python:
 
-- Introducción a entornos de ejecución (Colab, VS Code)
-- Tipos de datos primitivos y estructuras básicas
-- Diccionarios y estructuras de objetos
-- Sentencias de control condicionales e iterativas
-- Funciones y práctica integradora
+- Entornos de ejecución: Google Colab y VS Code
+- Tipos de datos primitivos: `int`, `float`, `str`, `bool`; f-strings; conversiones de tipo
+- Estructuras de datos: `list`, `tuple`, `dict`; indexación, slicing, métodos
+- Fechas (`datetime`) y arreglos numéricos con NumPy
+- Control de flujo: `if/elif/else`, `for`, `while`; definición de funciones
+- Programación Orientada a Objetos: clases, objetos, `__init__`, atributos y métodos
 
-### Unidad 2 (clases 6 a 11)
+### Unidad 2 — Adquisición y análisis de datos — Primera parte (Clases 6 a 10)
 
-Adquisición, procesamiento y análisis de datos:
+Obtención, procesamiento y análisis exploratorio de datos:
 
-- Obtención de datos y perfiles exploratorios
-- Web scraping con BeautifulSoup y Selenium
-- Automatización con scripts Selenium
-- Manipulación y análisis con Pandas (NumPy, filtrado, agregación)
-- Conexión a bases de datos SQL (MySQL/Northwind)
+- Lectura de archivos (CSV, ZIP) y descarga desde web con `requests`
+- Descarga de datasets desde Kaggle con `kagglehub`
+- Análisis exploratorio con Profiling Reports (`ydata-profiling`)
+- Web scraping: HTTP, `BeautifulSoup`, automatización con `Selenium`
+- Creación y manipulación de DataFrames con `pandas`
+- Muestreo aleatorio y estratificado con control de aleatoriedad
+
+### Unidad 2 — Estadística, visualización y uso responsable (Clases 11 a 18)
+
+Análisis estadístico, visualización avanzada y gobernanza de datos:
+
+- Estadística descriptiva: media, mediana, moda, percentiles, varianza, asimetría, curtosis (`scipy.stats`, `sympy`)
+- Conexión a bases de datos relacionales: MySQL + Northwind (`mysql-connector-python`)
+- Correlaciones (Pearson, Spearman) y series financieras (`yfinance`)
+- Visualización clásica (`matplotlib`), estadística (`seaborn`) e interactiva (`plotly`)
+- Visualización avanzada: KDE, ECDF, QQ-plots, mapas geoespaciales (`geopandas`), animaciones
+- Indicadores de desempeño y dashboards con Plotly
+- Explicabilidad de modelos con SHAP Values (`shap`) y clasificación con XGBoost
+- Balanceo de clases con SMOTE (`imbalanced-learn`)
+- Privacidad diferencial: anonimización (`anonymizedf`) y mecanismo de Laplace (`opendp`)
+
+### Unidad 3 — Machine Learning responsable (Clases 19 a 21)
+
+Modelado supervisado con enfoque en equidad, explicabilidad y uso ético:
+
+- Análisis de sesgo y varianza: overfitting, underfitting, curvas de aprendizaje
+- Métricas de evaluación: accuracy, precision, recall, F1, AUC, curva ROC
+- Modelos supervisados: Regresión Logística, Árbol de Decisión, Random Forest (`scikit-learn`)
+- Equidad algorítmica: tasas de error diferenciadas por grupo sensible (género, zona, clase)
+- SHAP Values para explicabilidad individual y global
+- Proyectos integradores: clasificación de riesgo crediticio y regresión de precios inmobiliarios
+- Flujo completo de modelado responsable: EDA → entrenamiento → diagnóstico → equidad
 
 ---
 
@@ -186,18 +228,43 @@ Para usar Google Colab sin configuración local, consulta la guía en:
 
 ---
 
-## Cambios recientes (abril 2026)
+## Dependencias principales
 
-- Se añadió `mysql-connector-python` a `requirements.in` y `requirements.txt` para soportar las notebooks que se conectan a MySQL (Northwind).
-- Se verificó e instaló `pandas` y `numpy` en el kernel del notebook para evitar `ModuleNotFoundError` durante la ejecución.
+El archivo `requirements.in` lista las dependencias directas del proyecto, organizadas por temática:
 
-## Dependencias principales actualmente en `requirements.txt`
+| Paquete | Uso en el curso |
+|---------|------------------|
+| `pandas` | Manipulación y análisis de DataFrames (U2 en adelante) |
+| `numpy` | Arreglos numéricos y operaciones vectoriales (U1 en adelante) |
+| `scipy` | Estadística descriptiva avanzada: correlaciones, distribuciones (Clase 11) |
+| `sympy` | Cálculo simbólico para estadística (Clase 11) |
+| `kagglehub` | Descarga de datasets desde Kaggle (Clase 6 en adelante) |
+| `ydata-profiling` | Profiling Reports automáticos (Clase 6) |
+| `requests` | Solicitudes HTTP y descarga de archivos (Clase 7) |
+| `beautifulsoup4` | Web scraping y parsing HTML (Clase 7) |
+| `selenium` + `webdriver-manager` | Scraping dinámico con navegador (Clase 7) |
+| `matplotlib` | Visualización clásica: barras, líneas, histogramas (Clase 13 en adelante) |
+| `seaborn` | Visualización estadística (Clase 13 en adelante) |
+| `plotly` | Visualización interactiva y dashboards (Clase 13 en adelante) |
+| `kaleido` | Exportación de gráficos Plotly a imagen estática |
+| `mysql-connector-python` | Conexión a bases de datos MySQL (Clase 11) |
+| `sqlalchemy` | ORM y conexiones SQL avanzadas |
+| `yfinance` | Series financieras históricas desde YahooFinance (Clases 12, 15) |
+| `scikit-learn` | Machine Learning supervisado: regresión, clasificación, métricas (Clase 17 en adelante) |
+| `xgboost` | Clasificación de alta performance con Gradient Boosting (Clases 17, 19, 21) |
+| `imbalanced-learn` | Balanceo de clases con SMOTE (Clase 17) |
+| `shap` | Explicabilidad de modelos: SHAP Values (Clases 17, 20, 21) |
+| `opendp` | Privacidad diferencial: mecanismo de Laplace (Clase 18) |
+| `anonymizedf` | Anonimización de datos personales (Clase 18) |
+| `geopandas` | Visualización geoespacial y mapas (Clase 15) |
+| `geodatasets` | Datasets geográficos de referencia (Clase 15) |
+| `nbformat` | Manipulación programática de archivos `.ipynb` |
+| `ipywidgets` | Widgets interactivos en notebooks |
+| `python-docx` | Lectura/escritura de archivos Word |
+| `camelot-py` | Extracción de tablas desde PDFs |
+| `pydrive2` | Integración con Google Drive |
 
-- `mysql-connector-python==9.7.0`
-- `pandas==3.0.2`
-- `numpy==2.4.4`
-- `python-dateutil==2.9.0.post0`
-- `six==1.17.0`
+> **Nota sobre dependencias del sistema**: `camelot-py` requiere [Ghostscript](https://www.ghostscript.com/) instalado. `selenium` y `webdriver-manager` requieren Chrome o Firefox. `mysql-connector-python` requiere acceso a un servidor MySQL externo.
 - `tzdata==2026.2`
 
 Si necesitas confirmar versiones locales, activa el entorno y ejecuta:

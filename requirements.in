@@ -19,3 +19,12 @@ plotly
 nbformat
 ipywidgets
 kaleido
+matplotlib
+scikit-learn
+xgboost
+imbalanced-learn
+shap
+opendp
+anonymizedf
+geopandas
+geodatasets
