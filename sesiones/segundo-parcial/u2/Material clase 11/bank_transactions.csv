@@ -1,0 +1,15 @@
+﻿ID_Cuenta_Cliente;ID_Tipo_cuenta;Tipo_cuenta;Saldo_cuenta;ID_Trx;ID_Tipo_Trx;Tipo_Trx;Fecha_Trx;Monto_Trx;ID_Cliente;Nombre_Cliente;Fecha_Nac_Cliente;Genero_Cliente;Localidad_Cliente;Provincia_Cliente;ID_Sucursal;Nombre_Sucursal
+31;3;Sueldo;125000;1;1;Transferencia;2/8/2016;$ 17.820;1;abcd;10/1/1994;Femenino;Rosario;Santa Fe;2;ROS
+31;3;Sueldo;125000;2;3;Tarjeta de credito;1/8/2016;$ 19.519;1;abcd;10/1/1994;Femenino;Rosario;Santa Fe;2;ROS
+31;3;Sueldo;125000;3;2;Tarjeta de debito;3/8/2016;$ 21.200;1;abcd;10/1/1994;Femenino;Rosario;Santa Fe;2;ROS
+22;2;Corriente;300000;4;4;Cheque;5/8/2016;$ 50.000;2;efg;4/4/1957;Masculino;CABA;CABA;1;CABA
+22;2;Corriente;300000;5;4;Cheque;5/8/2016;$ 30.000;2;efg;4/4/1957;Masculino;CABA;CABA;1;CABA
+13;1;Caja de ahorro;230000;6;3;Tarjeta de credito;4/8/2016;$ 36.500;3;hij;14/9/1973;Femenino;Ciudad de Cordoba;Cordoba;3;CBA
+13;1;Caja de ahorro;230000;7;2;Tarjeta de debito;4/8/2016;$ 17.900;3;hij;14/9/1973;Femenino;Ciudad de Cordoba;Cordoba;3;CBA
+34;3;Sueldo;125000;8;1;Transferencia;2/8/2016;$ 97.000;4;klm;24/3/1988;Femenino;Rosario;Santa Fe;2;ROS
+34;3;Sueldo;125000;9;3;Tarjeta de credito;1/8/2016;$ 53.609;4;klm;24/3/1988;Femenino;Rosario;Santa Fe;2;ROS
+34;3;Sueldo;125000;10;2;Tarjeta de debito;3/8/2016;$ 24.300;4;klm;24/3/1988;Femenino;Rosario;Santa Fe;2;ROS
+25;2;Corriente;300000;11;4;Cheque;5/8/2016;$ 25.000;5;nop;27/1/1982;Masculino;CABA;CABA;1;CABA
+25;2;Corriente;300000;12;4;Cheque;5/8/2016;$ 75.000;5;nop;27/1/1982;Masculino;CABA;CABA;1;CABA
+16;1;Caja de ahorro;230000;13;3;Tarjeta de credito;4/8/2016;$ 27.200;6;qrs;22/6/1984;Masculino;Ciudad de Cordoba;Cordoba;3;CBA
+16;1;Caja de ahorro;230000;14;2;Tarjeta de debito;4/8/2016;$ 9.500;6;qrs;22/6/1984;Masculino;Ciudad de Cordoba;Cordoba;3;CBA

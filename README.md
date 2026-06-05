@@ -8,41 +8,65 @@ Este repositorio contiene material educativo estructurado en notebooks Jupyter, 
 
 ---
 
-## Requisitos
+## Cómo ejecutar este material
 
-- **Python**: 3.12 recomendado
-- **pip-tools**: Para gestionar dependencias
-- **Entorno virtual**: Recomendado para aislamiento de dependencias
+### Google Colab ⭐ (recomendado — método oficial del curso)
+
+Google Colab es el entorno utilizado por el profesor en clase. No requiere instalación local y provee acceso gratuito a recursos de cómputo en la nube de Google.
+
+**Requisito único**: tener una cuenta de Gmail (Google).
+
+#### Abrir un notebook del curso en Colab
+
+1. Accedé a [colab.research.google.com](https://colab.research.google.com)
+2. En el menú: **Archivo → Abrir cuaderno → Subir** → seleccioná el archivo `.ipynb` del repositorio, o bien usá la pestaña **Google Drive** si ya tenés el repositorio sincronizado.
+3. Una vez abierto, guardá tu propia copia: **Archivo → Guardar una copia en Drive**. El notebook se abrirá en una nueva pestaña ya conectado a tu sesión personal.
+4. Ejecutá las celdas desde arriba hacia abajo con `Ctrl+Enter` (celda actual) o `Shift+Enter` (celda actual y avanzar).
+
+> **Importante**: siempre trabajar en la copia guardada en tu Drive. Si abrís el notebook original sin guardar copia, no podrás ejecutar el código.
+
+#### Instalar dependencias en Colab
+
+Colab pre-instala las librerías más comunes (`pandas`, `numpy`, `matplotlib`, `seaborn`, `scipy`, `scikit-learn`, `requests`, `beautifulsoup4`). Para el resto, ejecutá `!pip install` en una celda al inicio del notebook:
+
+```python
+# Instalación de paquetes adicionales (ejecutar solo una vez por sesión)
+!pip install kagglehub ydata-profiling xgboost shap imbalanced-learn \
+             opendp anonymizedf geopandas geodatasets \
+             mysql-connector-python sympy yfinance
+```
+
+Cada sesión de Colab comienza desde cero, por lo que esta celda debe ejecutarse nuevamente si reconectás.
+
+#### Compartir un notebook de Colab
+
+- Para compartir: botón **Compartir** (arriba a la derecha) → seleccionar "Cualquier persona con el enlace" → **Copiar enlace**.
+- Para recibir un notebook compartido: abrí el enlace → **Archivo → Guardar una copia en Drive** para activar tu propia sesión de ejecución.
 
 ---
 
-## Instalación del entorno
+### Entorno local con Python (opcional — usuarios avanzados)
 
-Ejecuta los siguientes comandos en orden:
+Para ejecutar los notebooks localmente sin dependencia de internet:
 
 ```bash
 python -m venv .venv
-source .venv/Scripts/activate
+source .venv/Scripts/activate   # Windows Git Bash
+# .venv\Scripts\Activate.ps1    # Windows PowerShell
 pip install pip-tools
-pip-compile
-```
-
-**Explicación de cada paso:**
-
-1. `python -m venv .venv` — Crea un entorno virtual aislado en la carpeta `.venv`
-2. `source .venv/Scripts/activate` — Activa el entorno (usa `.venv\Scripts\activate` en Windows CMD/PowerShell)
-3. `pip install pip-tools` — Instala la herramienta de gestión de dependencias
-4. `pip-compile` — Compila `requirements.in` a `requirements.txt` resolviendo todas las dependencias
-
-Después, instala las dependencias compiladas:
-
-```bash
+python -m piptools compile
 pip install -r requirements.txt
 ```
+
+Después, abrí los notebooks con Jupyter Lab o VS Code y seleccioná el kernel `.venv`.
+
+> ⚠️ **Clase 7 (Selenium)**: la automatización del navegador no funciona en Google Colab. Requiere entorno local con Chrome o Firefox instalado.
 
 ---
 
 ## Gestión de dependencias con pip-tools
+
+> **Nota**: esta sección aplica solo al entorno local. En Google Colab, usar `!pip install` directamente en el notebook (ver sección anterior).
 
 Este proyecto utiliza **pip-tools** para garantizar reproducibilidad y control preciso de versiones.
 
@@ -84,9 +108,9 @@ Siempre modificar `requirements.in` y luego compilar con `python -m piptools com
 
 ---
 
-## Ejecución del proyecto
+## Ejecución local del proyecto
 
-El proyecto consiste en notebooks Jupyter interactivos. Para visualizar y ejecutar:
+Para ejecutar localmente después de instalar las dependencias:
 
 ### Con Jupyter Lab
 
@@ -98,7 +122,7 @@ Abre una interfaz web en `http://localhost:8888` donde puedes navegar y ejecutar
 
 ### Con VS Code
 
-Abre VS Code y utiliza la extensión oficial de Jupyter para VS Code. Selecciona el kernel `.venv` al abrir un notebook (`.ipynb`).
+Abre VS Code y utiliza la extensión oficial de Jupyter para VS Code. Seleccioná el kernel `.venv` al abrir un notebook (`.ipynb`).
 
 ---
 
@@ -149,6 +173,74 @@ Cada carpeta de clase contiene:
 - **`practica/`** — Notebooks con ejercicios y actividades
 - Archivos de datos (`.csv`) cuando aplica
 - Scripts auxiliares (`.py`) si son necesarios
+
+---
+
+## Sistema de archivos en Google Colab
+
+Cada vez que abrís un notebook en Colab, se crea una máquina virtual temporal. Entender dónde se guardan los archivos es fundamental para evitar errores del tipo `FileNotFoundError`.
+
+### Mapa de rutas
+
+| Ruta | Descripción | ¿Persiste al cerrar? |
+|------|-------------|---------------------|
+| `/content/` | Directorio de trabajo por defecto | **No** |
+| `/content/archivo.csv` | Archivos subidos manualmente o descargados con `requests` / `urllib` | **No** |
+| `/root/.cache/kagglehub/` | Cache de datasets descargados con `kagglehub` | **No** |
+| `/content/drive/` | Raíz del Google Drive montado | **Sí** (en Drive) |
+| `/content/drive/MyDrive/` | Tu Google Drive personal | **Sí** (en Drive) |
+| `/content/drive/MyDrive/TPAD/` | Carpeta recomendada para guardar datasets del curso | **Sí** (en Drive) |
+
+> **Importante**: todo lo que esté en `/content/` (fuera de Drive) se pierde al desconectar o cerrar la sesión. Los archivos en `/content/drive/MyDrive/` persisten porque viven en Google Drive.
+
+### Dónde aparecen los archivos descargados
+
+```python
+import requests
+
+# Descargar un CSV desde una URL
+url = "https://ejemplo.com/datos.csv"
+response = requests.get(url)
+with open("/content/datos.csv", "wb") as f:
+    f.write(response.content)
+
+# El archivo queda en /content/datos.csv
+# En el panel izquierdo de Colab (ícono de carpeta) aparece como "datos.csv"
+import pandas as pd
+df = pd.read_csv("/content/datos.csv")
+```
+
+Con `kagglehub`, los datasets se descargan automáticamente a `/root/.cache/kagglehub/` y la función devuelve la ruta:
+
+```python
+import kagglehub
+ruta = kagglehub.dataset_download("usuario/nombre-dataset")
+print(ruta)  # /root/.cache/kagglehub/datasets/usuario/nombre-dataset/versions/1
+```
+
+### Montar Google Drive (recomendado para persistencia)
+
+Ejecutar esta celda al inicio del notebook para tener acceso a Google Drive:
+
+```python
+from google.colab import drive
+drive.mount("/content/drive")
+# Tus archivos quedan accesibles en /content/drive/MyDrive/
+```
+
+Luego guardá los datasets descargados en Drive para no tener que volver a bajarlos:
+
+```python
+import shutil
+# Copiar un dataset al Drive para que persista
+shutil.copy("/root/.cache/kagglehub/.../archivo.csv", "/content/drive/MyDrive/TPAD/archivo.csv")
+```
+
+### Resumen: qué hacer al reconectar la sesión
+
+1. Volver a ejecutar la celda de `!pip install` (los paquetes no persisten)
+2. Volver a ejecutar `drive.mount("/content/drive")` si usás Drive
+3. Los archivos en Drive siguen disponibles; los que estaban en `/content/` deben volver a descargarse
 
 ---
 
@@ -208,14 +300,10 @@ Modelado supervisado con enfoque en equidad, explicabilidad y uso ético:
 
 1. **Orden secuencial** — Seguir cada notebook de arriba hacia abajo
 2. **Práctica primero** — Resolver ejercicios antes de revisar soluciones
-3. **Entorno local** — Ejecutar localmente con `.venv` para máxima compatibilidad
-4. **Clase 7 (Selenium)** — Requiere navegador compatible y webdriver actualizado
+3. **Google Colab** — Abrir el notebook, guardar copia en Drive y ejecutar (método recomendado del curso)
+4. **Clase 7 (Selenium)** — Requiere entorno local; la automatización de navegador no funciona en Colab
 5. **Referencia** — Consultar PDFs en `fuentes/` para profundizar conceptos
-
-### Alternativa: Google Colab
-
-Para usar Google Colab sin configuración local, consulta la guía en:
-- [U1-Clase-1-1-Introduccion-a-Google-Colaboratory.pdf](sesiones/primer-parcial/u1/clase1/U1-Clase-1-1-Introduccion-a-Google-Colaboratory.pdf)
+6. **Persistencia de datos** — Montar Google Drive al inicio de la sesión para no perder archivos descargados
 
 ---
 
